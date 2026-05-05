@@ -1,0 +1,6 @@
+[
+  {"id":"1","league":"Premier League","leagueId":"EPL","homeTeam":"Man City","awayTeam":"Arsenal","homeScore":2,"awayScore":1,"status":"LIVE","minute":73,"date":"2026-05-06T19:00:00Z"},
+  {"id":"2","league":"Premier League","leagueId":"EPL","homeTeam":"Liverpool","awayTeam":"Chelsea","homeScore":0,"awayScore":0,"status":"1ST_HALF","minute":28,"date":"2026-05-06T20:00:00Z"},
+  {"id":"3","league":"LaLiga","leagueId":"LALIGA","homeTeam":"Real Madrid","awayTeam":"Barcelona","homeScore":1,"awayScore":1,"status":"2ND_HALF","minute":82,"date":"2026-05-06T21:00:00Z"},
+  {"id":"4","league":"Serie A","leagueId":"SERIEA","homeTeam":"AC Milan","awayTeam":"Inter","homeScore":0,"awayScore":0,"status":"TODAY","minute":null,"date":"2026-05-07T19:45:00Z"}
+]

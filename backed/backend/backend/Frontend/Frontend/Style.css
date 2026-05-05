@@ -1,0 +1,26 @@
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Inter',sans-serif; background:#0a0f1e; color:#fff; }
+.app-container { max-width:800px; margin:0 auto; padding:16px; }
+header { display:flex; justify-content:space-between; align-items:center; background:#111827; padding:14px 20px; border-radius:32px; margin-bottom:20px; }
+.logo { font-weight:800; font-size:1.4rem; background:linear-gradient(135deg,#3b82f6,#06b6d4); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.live-badge { background:#dc2626; padding:4px 12px; border-radius:30px; font-size:0.7rem; font-weight:bold; animation:pulse 1.5s infinite; }
+@keyframes pulse { 0%{opacity:0.7;} 50%{opacity:1;} 100%{opacity:0.7;} }
+.menu-icons span { background:#1e293b; padding:6px 14px; border-radius:30px; font-size:0.8rem; margin-left:8px; cursor:pointer; transition:0.2s; }
+.menu-icons span:hover { background:#334155; }
+.match-card { background:#111827; border-radius:20px; padding:16px; margin-bottom:12px; border-left:4px solid #3b82f6; }
+.match-header { font-size:0.7rem; color:#9ca3af; margin-bottom:10px; display:flex; justify-content:space-between; }
+.match-teams { display:flex; justify-content:space-between; align-items:center; font-weight:600; font-size:1.1rem; }
+.team { flex:1; }
+.team.home { text-align:left; }
+.team.away { text-align:right; }
+.score { font-size:1.6rem; font-weight:800; background:#1e293b; padding:4px 12px; border-radius:20px; margin:0 8px; }
+.status { font-size:0.7rem; color:#facc15; margin-top:8px; }
+.live-status { color:#22c55e; font-weight:bold; }
+.standings-panel { background:#111827; border-radius:24px; padding:16px; }
+.standings-table { width:100%; border-collapse:collapse; }
+.standings-table th, .standings-table td { padding:8px; text-align:left; border-bottom:1px solid #1f2937; }
+.toast { position:fixed; bottom:30px; left:50%; transform:translateX(-50%); background:#000000dd; backdrop-filter:blur(12px); color:#facc15; padding:12px 24px; border-radius:60px; font-weight:bold; z-index:1000; transition:0.3s; pointer-events:none; }
+.toast.hidden { opacity:0; visibility:hidden; }
+.btn-main { background:linear-gradient(135deg,#3b82f6,#06b6d4); border:none; padding:12px; border-radius:30px; color:white; font-weight:bold; width:100%; cursor:pointer; }
+.premium-btn { background:gold; color:black; }
+footer { text-align:center; margin-top:30px; font-size:0.7rem; color:#4b5563; }

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fescore Admin</title>
+  <style>
+    body { font-family: sans-serif; background: #0a0f1e; color: white; padding: 20px; }
+    input, button { padding: 10px; margin: 5px; border-radius: 12px; border: none; }
+    button { background: #3b82f6; color: white; cursor: pointer; }
+  </style>
+</head>
+<body>
+<h2>Fescore Admin Panel</h2>
+<input type="password" id="adminPass" placeholder="Admin Password">
+<button id="loginBtn">Login</button>
+<div id="adminContent" style="display:none; margin-top:20px;">
+  <h3>Pending Payments</h3>
+  <ul id="pendingList"></ul>
+  <button id="refreshBtn">Refresh</button>
+</div>
+<script>
+  let token = null;
+  document.getElementById('loginBtn').onclick = async () => {
+    const pass = document.getElementById('adminPass').value;
+    const res = await fetch('/api/admin/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password: pass })
+    });
+    if (res.ok) {
+      const data = await res.json();
+      token = data.token;
+      localStorage.setItem('adminToken', token);
+      document.getElementById('adminContent').style.display = 'block';
+      fetchPending();
+    } else alert('Password wrong');
+  };
+  async function fetchPending() {
+    const res = await fetch('/api/admin/pending', {
+      headers: { 'Authorization': `Bearer ${token}` }
+    });
+    const pending = await res.json();
+    const ul = document.getElementById('pendingList');
+    ul.innerHTML = '';
+    for (let p of pending) {
+      const li = document.createElement('li');
+      li.innerHTML = `${p.email} - TXN: ${p.txnId} <button onclick="approve('${p.email}')">Approve</button>`;
+      ul.appendChild(li);
+    }
+  }
+  window.approve = async (email) => {
+    await fetch('/api/admin/approve', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+      body: JSON.stringify({ email })
+    });
+    fetchPending();
+  };
+  document.getElementById('refreshBtn').onclick = fetchPending;
+  if (localStorage.getItem('adminToken')) {
+    token = localStorage.getItem('adminToken');
+    document.getElementById('adminContent').style.display = 'block';
+    fetchPending();
+  }
+</script>
+</body>
+</html>

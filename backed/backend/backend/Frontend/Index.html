@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="so">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Fescore | Live Scores</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-container">
+  <header>
+    <div class="logo">⚽ FESCORE</div>
+    <div class="live-badge">🔴 LIVE</div>
+    <div class="menu-icons">
+      <span id="tableBtn">📊 Table</span>
+      <span id="premiumBtn" class="premium-btn">👑 Premium</span>
+    </div>
+  </header>
+  <main>
+    <div id="matchesList" class="matches-container"></div>
+    <div id="standingsPanel" style="display:none;" class="standings-panel"></div>
+    <div id="paymentForm" style="display:none; margin-top:20px; background:#1e293b; padding:15px; border-radius:20px;">
+      <input type="text" id="txnId" placeholder="Transaction ID" style="width:100%; padding:10px; border-radius:12px; margin-bottom:10px;">
+      <button id="submitPayment" class="btn-main">Submit Payment</button>
+      <p style="font-size:12px; margin-top:10px;">Bixi $2 EVC Plus: +252612028724 ama Salaam Bank 38509583</p>
+    </div>
+  </main>
+  <footer>Support: +252612028724 | © 2026 Fescore</footer>
+</div>
+<div id="goalToast" class="toast hidden">⚽ GOAL!</div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
